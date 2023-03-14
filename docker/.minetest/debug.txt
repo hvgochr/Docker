@@ -1,0 +1,24 @@
+
+
+-------------
+  Separator
+-------------
+
+2023-03-14 14:59:20: [Main]: Using game specified by --gameid on the command line
+2023-03-14 14:59:31: ACTION[Main]: World at [/config/.minetest/worlds/world]
+2023-03-14 14:59:31: ACTION[Main]: Server for gameid="minetest" listening on 0.0.0.0:25565.
+
+
+-------------
+  Separator
+-------------
+
+2023-03-14 15:05:16: [Main]: Automatically selecting world at [/config/.minetest/worlds/world]
+2023-03-14 15:05:16: [Main]: Using game specified by --gameid on the command line
+2023-03-14 15:05:22: ACTION[Main]: World at [/config/.minetest/worlds/world]
+2023-03-14 15:05:22: ACTION[Main]: Server for gameid="minetest" listening on 0.0.0.0:25565.
+2023-03-14 15:09:03: ACTION[Server]: hugo [172.19.0.1] joins game. List of players: hugo
+2023-03-14 15:09:20: ACTION[Server]: hugo digs default:dirt_with_grass at (79,21,191)
+2023-03-14 15:09:39: ACTION[Server]: hugo leaves game. List of players: 
+2023-03-14 15:55:30: [Main]: INFO: signal_handler(): got SIGTERM, shutting down.
+2023-03-14 15:55:30: ACTION[Main]: Server: Shutting down

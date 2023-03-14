@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+
+  web89:
+    image: php:8.2-apache
+    container_name: Tp-Docker-pt1
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - 82:80
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql123
+    environment:
+      MYSQL_DATABASE: tp2
+      MYSQL_USER: zinedine
+      MYSQL_PASSWORD: Bonjour!
+      MYSQL_ROOT_PASSWORD: aled
+      UPLOAD_LIMIT: 20M
+    ports:
+      - 3306:3306
+    volumes:
+      - ./Docker-pt1/mysql:/usr/local/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    depends_on:
+      - mysql
+    ports:
+      - 83:80
+    environment:
+      - PMA_HOST=mysql
+
+  minetest:
+    image: lscr.io/linuxserver/minetest:latest
+    container_name: mine
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - CLI_ARGS=--gameid minetest --port 25565
+    volumes:
+      - ./minetest/.minetest:/config/.minetest
+    ports:
+      - 25565:25565/udp
+    restart: unless-stopped
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 'pass'
+      POSTGRES_USER: 'user'
+      POSTGRES_DB: 'db'
+    volumes:
+        - ./data:/var/lib/postgresql/data
+    ports:
+        - 54321:54321
+    depends_on:
+      - postgis
+    command: >
+        sh -c "while ! pg_isready -h db -p 5432 > /dev/null 2> /dev/null; do sleep 1; done && \
+               psql -U example_user -d example_db -c 'CREATE EXTENSION postgis;'"
+
+  postgis:
+    image: postgis/postgis:13-3.2-alpine
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@mail.com
+      PGADMIN_DEFAULT_PASSWORD: Bonjour!
+    ports:
+      - "8080:80"
