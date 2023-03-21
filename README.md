@@ -5,7 +5,6 @@ Ce projet contient une configuration Docker Compose pour exécuter les services 
 - `web89` : un serveur Web Apache avec PHP 8.2
 - `mysql` : un serveur de base de données MySQL 5.7
 - `phpmyadmin` : une interface Web pour administrer la base de données MySQL
-- `minetest` : un serveur de jeu Minetest
 - `postgres` : un serveur de base de données PostgreSQL avec PostGIS
 - `pgadmin` : une interface Web pour administrer la base de données PostgreSQL
 
@@ -53,11 +52,10 @@ Cela arrêtera tous les services et supprimera les conteneurs et les réseaux as
 
 ## Notes
 
-Les volumes sont utilisés pour stocker les données persistantes de MySQL, Minetest, PostgreSQL et pgAdmin. Les données sont stockées dans les répertoires suivants:
+Les volumes sont utilisés pour stocker les données persistantes de MySQL, PostgreSQL et pgAdmin. Les données sont stockées dans les répertoires suivants:
 
 ./html : contenu du site Web Apache
 ./Docker-pt1/mysql : données MySQL
-./minetest/.minetest : données Minetest
 ./data : données PostgreSQL
 ./pgadmin : données pgAdmin
 
