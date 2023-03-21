@@ -20,7 +20,7 @@ Docker Compose : https://docs.docker.com/compose/install/
 Clonez le projet dans votre répertoire local :
 
 ```bash
-git clone https://github.com/votre_nom/tp-docker-partie1.git
+git clone https://github.com/hvgochr/Docker
 ```
 
 Placez-vous dans le répertoire du projet :
