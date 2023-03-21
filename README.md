@@ -26,7 +26,7 @@ git clone https://github.com/votre_nom/tp-docker-partie1.git
 Placez-vous dans le répertoire du projet :
 
 ```bash
-cd tp-docker-partie1
+cd Docker
 ```
 
 Lancez les services en arrière-plan :
