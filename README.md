@@ -46,7 +46,7 @@ Accédez aux interfaces Web :
 Pour arrêter les services, exécutez la commande suivante dans le répertoire du projet :
 
 ```bash 
-docker-compose down
+docker compose down
 ```
 
 Cela arrêtera tous les services et supprimera les conteneurs et les réseaux associés.
@@ -55,10 +55,10 @@ Cela arrêtera tous les services et supprimera les conteneurs et les réseaux as
 
 Les volumes sont utilisés pour stocker les données persistantes de MySQL, PostgreSQL et pgAdmin. Les données sont stockées dans les répertoires suivants:
 
-./html : contenu du site Web Apache
-./Docker-pt1/mysql : données MySQL
-./data : données PostgreSQL
-./pgadmin : données pgAdmin
+./docker/html : contenu du site Web Apache
+./Docker/mysql : données MySQL
+./docker/data : données PostgreSQL
+./docker/pgadmin : données pgAdmin
 
 La base de données PostgreSQL est configurée pour utiliser l'extension PostGIS. Cette extension est installée via la commande CREATE EXTENSION postgis; dans le fichier docker-compose.yml.
 
