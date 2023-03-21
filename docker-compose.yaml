@@ -4,11 +4,13 @@ services:
 
   web89:
     image: php:8.2-apache
-    container_name: Tp-Docker-pt1
+    container_name: apache123
     volumes:
-      - ./html:/var/www/html
+      - ./docker/html:/var/www/html
     ports:
       - 82:80
+    environment:
+      - XDEBUG_CONFIG=remote_port=9000
 
   mysql:
     image: mysql:5.7
@@ -22,31 +24,17 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ./Docker-pt1/mysql:/usr/local/mysql
+      - ./docker/mysql:/usr/local/mysql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: pma
+    container_name: phpmyadmin
     depends_on:
       - mysql
     ports:
       - 83:80
     environment:
       - PMA_HOST=mysql
-
-  minetest:
-    image: lscr.io/linuxserver/minetest:latest
-    container_name: mine
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - CLI_ARGS=--gameid minetest --port 25565
-    volumes:
-      - ./minetest/.minetest:/config/.minetest
-    ports:
-      - 25565:25565/udp
-    restart: unless-stopped
 
   postgres:
     image: postgres
@@ -56,7 +44,7 @@ services:
       POSTGRES_USER: 'user'
       POSTGRES_DB: 'db'
     volumes:
-        - ./data:/var/lib/postgresql/data
+        - ./docker/data:/var/lib/postgresql/data
     ports:
         - 54321:54321
     depends_on:
