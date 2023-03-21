@@ -32,7 +32,8 @@ cd tp-docker-partie1
 Lancez les services en arrière-plan :
 
 ```bash
-docker-compose up -d
+docker compose build
+docker compose up -d
 ```
 
 Accédez aux interfaces Web :
